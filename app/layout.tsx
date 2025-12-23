@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { ConvexClientProvider } from "@/providers/convex-client-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
+import { ModalProvider } from "@/providers/modal-provider";
 const inter =Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "SoapBoard",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <ClerkProvider>
         <ConvexClientProvider>
           <Toaster />
+          <ModalProvider/>
         {children}
         </ConvexClientProvider>
         </ClerkProvider>

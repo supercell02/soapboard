@@ -6,7 +6,7 @@ import { formatDistanceToNow } from "date-fns";
 import { useAuth } from "@clerk/nextjs";
 import { Footer } from "./footer";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Action } from "@/components/actions";
+import { Actions } from "@/components/actions";
 import { MoreHorizontal } from "lucide-react";
 import { useApiMutation } from "@/hooks/use-api-mutation";
 import { api } from "@/convex/_generated/api";
@@ -68,7 +68,7 @@ export const BoardCard = ({
                     className="object-fit"
                     />
                     <Overlay />
-                    <Action 
+                    <Actions 
                     id={id}
                     title={title}
                     side="right"
@@ -77,7 +77,7 @@ export const BoardCard = ({
                     > 
                         <MoreHorizontal className="text-white opacity-75 hover:opacity-100 transition-opacity" />
                     </button>
-                    </Action>
+                    </Actions>
                 </div>
                 <Footer
                     isFavorite={isFavorite}

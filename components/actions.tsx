@@ -17,7 +17,7 @@ interface ActionProps{
     title: string;
 }
 
-export const Action = ({children, side, sideOffset, id, title}: ActionProps) => {
+export const Actions = ({children, side, sideOffset, id, title}: ActionProps) => {
 
     const { onOpen } = useRenameModal();
 

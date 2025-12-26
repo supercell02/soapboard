@@ -1,5 +1,6 @@
 "use client";
 
+import { colorToCss } from "@/lib/utils";
 import { RectangleLayer } from "@/types/canvas";
 
 interface RectangleProps{
@@ -26,8 +27,8 @@ export const Rectangle =({
             height={height}
             onPointerDown={(e) => onPointerDown(e,id)}
             strokeWidth={1}
-            fill="#000"
-            stroke="tranparent"
+            fill={fill? colorToCss(fill) : "#000"}
+            stroke={selectionColor || "transparent"}
         />
     )
 }

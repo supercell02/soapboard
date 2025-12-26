@@ -9,9 +9,10 @@ import { Rectangle } from "./rectangle";
 
 interface LayerPreviewProps{
     id: string;
-    onLayerPointerDown:()=> void;
+    onLayerPointerDown:(e: React.PointerEvent<Element>, layerId: string) => void;
     selectionColor?: string;
 }
+
  export const LayerPreview = memo (({
     id,
     onLayerPointerDown,

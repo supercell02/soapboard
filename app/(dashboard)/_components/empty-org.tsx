@@ -11,7 +11,7 @@ export const EmptyOrg = () => {
   return (
     <div className="h-full flex flex-col items-center justify-center">
       <Image
-       src="/element.svg"
+       src="/elements.svg"
         alt="Empty"
         width={200}
         height={200}

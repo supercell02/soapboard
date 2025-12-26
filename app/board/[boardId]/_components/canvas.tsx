@@ -5,11 +5,12 @@ import { useCallback, useMemo, useState } from "react";
 import { Info } from "./info";
 import { Participants } from "./participants";
 import { Toolbar } from "./toolbar";
-import { useCanRedo, useCanUndo, useHistory, useMutation, useOthersMapped, useStorage} from "@liveblocks/react";
+import { useCanRedo, useCanUndo, useHistory, useMutation, useOthersMapped, useSelf, useStorage} from "@liveblocks/react";
 import { CursorsPresence } from "./cursor-presence";
 import { connectionIdToColor, pointerEventToCanvasPoint } from "@/lib/utils";
 import { LiveObject } from "@liveblocks/node";
 import { LayerPreview } from "./layer-preview";
+import { SelectionBox } from "./selection-box";
 
 const MAX_LAYERS = 100;
 
@@ -113,6 +114,7 @@ export const Canvas = ( { boardId } : CanvasProps ) => {
 
 
     const selections = useOthersMapped((other) => other.presence.selection);
+    const me = useSelf();
 
 
     const onLayerPointerDown = useMutation(({ self, setMyPresence}, 
@@ -154,8 +156,13 @@ export const Canvas = ( { boardId } : CanvasProps ) => {
             }
         }
 
+        if(me){
+        for(const layerId of me.presence.selection){
+            layerIdsToColorSelection[layerId] = connectionIdToColor(me.connectionId);
+        }
+    }
         return layerIdsToColorSelection;
-    },[selections]);
+    },[selections,me]);
 
 
     return (
@@ -177,9 +184,8 @@ export const Canvas = ( { boardId } : CanvasProps ) => {
             onPointerLeave={onPointerLeave}   
             onPointerUp={onPointerUp}      
             >
-                <g style={{
-                    transform: `translate(${camera.x})px, ${camera.y}px`
-                }}>
+                <g transform={`translate(${camera.x}, ${camera.y})`}>
+
                     {layerIds?.map((layerId) => (
                         <LayerPreview
                             key={layerId}
@@ -188,6 +194,9 @@ export const Canvas = ( { boardId } : CanvasProps ) => {
                             selectionColor = {layerIdsToColorSelection[layerId]}
                         />
                     ))}
+                    <SelectionBox 
+                        onResizeHandlePointerDown={()=>{}}
+                    />
                     <CursorsPresence />
                 </g>
             </svg>

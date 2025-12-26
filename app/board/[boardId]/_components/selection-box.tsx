@@ -82,6 +82,7 @@ export const SelectionBox = memo(
               onPointerDown={(e) => {
                 console.log("🟥 NW Handle PointerDown", bounds);
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Top + Side.Left, bounds);
               }}
             />
 
@@ -96,6 +97,7 @@ export const SelectionBox = memo(
               onPointerDown={(e) => {
                 console.log("🟩 NE Handle PointerDown", bounds);
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Top + Side.Right, bounds);
               }}
             />
 
@@ -110,6 +112,7 @@ export const SelectionBox = memo(
               onPointerDown={(e) => {
                 console.log("🟦 SE Handle PointerDown", bounds);
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Bottom + Side.Right, bounds);
               }}
             />
 
@@ -124,6 +127,7 @@ export const SelectionBox = memo(
               onPointerDown={(e) => {
                 console.log("🟨 SW Handle PointerDown", bounds);
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Bottom + Side.Left, bounds);
               }}
             />
 
@@ -140,6 +144,7 @@ export const SelectionBox = memo(
               onPointerDown={(e) => {
                 console.log("🔵 N Handle PointerDown", bounds);
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Top,bounds);
               }}
             />
 
@@ -154,6 +159,7 @@ export const SelectionBox = memo(
               onPointerDown={(e) => {
                 console.log("🟣 S Handle PointerDown", bounds);
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Bottom,bounds);
               }}
             />
 
@@ -168,6 +174,7 @@ export const SelectionBox = memo(
               onPointerDown={(e) => {
                 console.log("🟠 E Handle PointerDown", bounds);
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Right, bounds);
               }}
             />
 
@@ -182,6 +189,7 @@ export const SelectionBox = memo(
               onPointerDown={(e) => {
                 console.log("🟤 W Handle PointerDown", bounds);
                 e.stopPropagation();
+                onResizeHandlePointerDown(Side.Left, bounds);
               }}
             />
           </>

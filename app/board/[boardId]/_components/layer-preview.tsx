@@ -35,8 +35,7 @@ interface LayerPreviewProps{
                 selectionColor={selectionColor}
                 />
             );
-        default:
-            console.warn("Unknown Layer Type");
+         default:
             return null;
     }
  });

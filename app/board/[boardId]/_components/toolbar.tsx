@@ -97,13 +97,13 @@ export const Toolbar = ({
             </div>
             <div className="bg-white rounded-md p-1.5 flex flex-col items-center shadow-md">
                 <ToolButton 
-                label="Undo"
+                label="Undo [CTRL/⌘ + Z]"
                 icon={Undo2}
                 onClick={undo}
                 isDisabled={!canUndo}
                 />
                 <ToolButton 
-                label="Redo"
+                label="Redo [CTRL/⌘ + Y]"
                 icon={Redo2}
                 onClick={redo}
                 isDisabled={!canRedo}
